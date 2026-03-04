@@ -5,7 +5,10 @@ import { Coins } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { TEXT_MAX_LENGTH } from "@/features/text-to-speech/data/constants";
+import {
+  COST_PER_UNIT,
+  TEXT_MAX_LENGTH,
+} from "@/features/text-to-speech/data/constants";
 export function TextInputPanel() {
   const [text, setText] = useState("");
   const router = useRouter();
@@ -35,7 +38,8 @@ export function TextInputPanel() {
                   "Start typing to estimate"
                 ) : (
                   <>
-                    <span className="tabular-nums">${(text.length * 0.0003).toFixed(4)}
+                    <span className="tabular-nums">
+                      ${(text.length * COST_PER_UNIT).toFixed(4)}
                     </span>{" "}
                     estimated
                   </>
@@ -43,13 +47,19 @@ export function TextInputPanel() {
               </span>
             </Badge>
             <span className="text-ts text-muted-foreground">
-              {text.length.toLocaleString()} / {TEXT_MAX_LENGTH.toLocaleString()} characters
+              {text.length.toLocaleString()} /{" "}
+              {TEXT_MAX_LENGTH.toLocaleString()} characters
             </span>
           </div>
         </div>
 
         <div className="flex items-center justify-end p-3">
-          <Button size="sm" disabled={!text.trim()} onClick={handleGenerate} className="w-full lg:w-auto">
+          <Button
+            size="sm"
+            disabled={!text.trim()}
+            onClick={handleGenerate}
+            className="w-full lg:w-auto"
+          >
             Generate speech
           </Button>
         </div>
