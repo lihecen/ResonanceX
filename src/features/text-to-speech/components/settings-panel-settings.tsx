@@ -5,15 +5,14 @@ import { Slider } from "@/components/ui/slider";
 import { useTypedAppFormContext } from "@/hooks/use-app-form";
 import { sliders } from "@/features/text-to-speech/data/sliders";
 import { ttsFormOptions } from "@/features/text-to-speech/components/text-to-speech-form";
+import { VoiceSelector } from "./voice-selector";
 export function SettingsPanelSettings() {
   const form = useTypedAppFormContext(ttsFormOptions);
   const isSubmitting = useStore(form.store, (s) => s.isSubmitting);
   return (
     <>
       <div className="border-b border-dashed p-4">
-        <p className="text-sm text-muted-foreground">
-          Voice selector coming soon
-        </p>
+        <VoiceSelector />
       </div>
       <div className="p-4 flex-1">
         <FieldGroup className="gap-8">
