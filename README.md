@@ -20,7 +20,7 @@
 
 - Node.js **20.9** 
 - Prisma Postgres 数据库
-- Clerk account （开启组织功能）
+- Clerk account
 - Cloudflare R2 存储桶
 - Modal account （用于 GPU 托管的 TTS）
   
