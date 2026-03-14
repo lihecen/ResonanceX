@@ -121,7 +121,7 @@ src/
 │   ├── dashboard/              # 主页，快捷操作
 │   ├── text-to-speech/         # TTS 表单、音频播放器、设置、历史记录
 │   ├── voices/                 # 语音库、语音创建、语音录制
-│   └── billing/                # 使用量显示、结算（支付）
+│                  
 ├── hooks/                      # 应用全局 Hooks
 ├── lib/                        # 核心模块：数据库（db）、R2 存储、Polar、环境变量（env）、Chatterbox 客户端
 ├── trpc/                       # tRPC 路由、客户端、服务器辅助工具
