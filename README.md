@@ -48,7 +48,7 @@ npx prisma migrate deploy
 
 ### 4. Deploy the TTS engine
 
-由于 chatterbox_tts.py 基于 Modal 官方的 Chatterbox TTS 示例进行了改写，所以建议修改为直接从个人的 R2 存储桶中读取语音参考音频，而不是从 Modal Volume 中读取
+由于 chatterbox_tts.py 是基于 Modal 官方的 Chatterbox TTS 示例进行了改写，所以建议修改为直接从个人的 R2 存储桶中读取语音参考音频，而不是从 Modal Volume 中读取
 
 在部署之前，请在 chatterbox_tts.py 中更新为个人的 R2 凭证信息
 
@@ -57,7 +57,7 @@ R2_BUCKET_NAME = "<your-r2-bucket-name-here>"
 R2_ACCOUNT_ID = "<your-r2-account-id-here>"
 ```
 
-然后在你的 Modal 控制台中创建所需的密钥：
+然后在个人的 Modal 控制台中创建所需的密钥：
 | Secret Name | Keys | Description |
 |-------------|------|-------------|
 | `cloudflare-r2` | `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY` | R2 API 凭证（用于挂载存储桶） |
@@ -70,7 +70,7 @@ R2_ACCOUNT_ID = "<your-r2-account-id-here>"
 modal deploy chatterbox_tts.py
 ```
 
-这会将 Chatterbox TTS 部署到 Modal 上的无服务器 NVIDIA A10G GPU。容器会以只读方式挂载你的 R2 存储桶，从而可以直接访问语音参考音频。将生成的 Modal URL 作为 CHATTERBOX_API_URL 填写到个人的 .env.local 文件中
+这会将 Chatterbox TTS 部署到 Modal 上的无服务器 NVIDIA A10G GPU。容器会以只读方式挂载个人的 R2 存储桶，从而可以直接访问语音参考音频。将生成的 Modal URL 作为 CHATTERBOX_API_URL 填写到个人的 .env.local 文件中
 
 > **Note:** 在一段时间未使用后发出的第一次请求可能会花费更长时间，因为 Modal 需要冷启动并配置 GPU 容器
 
